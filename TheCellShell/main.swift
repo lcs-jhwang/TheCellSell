@@ -37,7 +37,11 @@ while true {
     
     // Now we have an integer, break input loop
     dayTimeMinutes = givenInteger
+    break
+}
 
+while true{
+    
     print("Number of evening minutes?")
     
     // Collect input
@@ -54,7 +58,11 @@ while true {
     
     // Now we have an integer, break input loop
     eveningTimeMinutes = givenInteger
-    
+    break
+}
+
+
+while true{
     print("Number of weekend minutes?")
     
     // Collect input
