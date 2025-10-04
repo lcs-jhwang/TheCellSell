@@ -87,11 +87,21 @@ if a < 0{
 // night time and weekend cost
 a +=  0.15 * Double(eveningTimeMinutes) + Double(weekEndTimeMinutes) * 0.2
 // Calculate costs for plan B
+// Calculate costs for plan A
+var b = 0.0
  
+// Add daytime  cost
+b += Double((dayTimeMinutes - 250)) * 0.45
+if b < 0{
+    b = 0
+}
+// night time and weekend cost
+b +=  0.35 * Double(eveningTimeMinutes) + Double(weekEndTimeMinutes) * 0.25
+
 
 
 
 
 // 3. Output
 print("Plan A costs \(a)")
- 
+print("Plan B costs \(b)")
