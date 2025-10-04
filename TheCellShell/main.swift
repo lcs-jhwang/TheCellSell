@@ -101,7 +101,14 @@ b +=  0.35 * Double(eveningTimeMinutes) + Double(weekEndTimeMinutes) * 0.25
 
 
 
-
 // 3. Output
 print("Plan A costs \(a)")
 print("Plan B costs \(b)")
+
+if a < b{
+    print("Plan A is cheaper")
+}else if a > b{
+    print("Plan B is cheaper")
+}else {
+    print("They are the same")
+}
