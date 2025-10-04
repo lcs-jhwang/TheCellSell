@@ -15,6 +15,8 @@ import Foundation
  
 // Get number of daytime minutes
 var dayTimeMinutes = 0
+var eveningTimeMinutes = 0
+
 while true {
     
     // Prompt
@@ -34,17 +36,34 @@ while true {
     
     // Now we have an integer, break input loop
     dayTimeMinutes = givenInteger
+
+    print("Number of evening minutes?")
+    
+    // Collect input
+    guard let givenInput = readLine() else {
+        // Repeat prompt, no input given
+        continue
+    }
+    
+    // Convert to integer
+    guard let givenInteger = Int(givenInput) else {
+        // Repeat prompt, not an integer
+        continue
+    }
+    
+    // Now we have an integer, break input loop
+    eveningTimeMinutes = givenInteger
     break
- 
+    
 }
  
 // 2. Process
  
 // Calculate costs for plan A
-var a = 0
+var a = 0.0
  
 // Add daytime cost
-a += (dayTimeMinutes - 100) * 25
+a += Double((dayTimeMinutes - 100)) * 0.25 + 0.15 * Double(eveningTimeMinutes)
 if a < 0{
     a = 0
 }
