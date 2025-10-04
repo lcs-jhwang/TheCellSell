@@ -45,7 +45,9 @@ var a = 0
  
 // Add daytime cost
 a += (dayTimeMinutes - 100) * 25
- 
+if a < 0{
+    a = 0
+}
 // Calculate costs for plan B
  
 // 3. Output
