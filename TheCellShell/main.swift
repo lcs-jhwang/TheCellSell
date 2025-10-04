@@ -16,6 +16,7 @@ import Foundation
 // Get number of daytime minutes
 var dayTimeMinutes = 0
 var eveningTimeMinutes = 0
+var weekEndTimeMinutes = 0
 
 while true {
     
@@ -53,8 +54,24 @@ while true {
     
     // Now we have an integer, break input loop
     eveningTimeMinutes = givenInteger
-    break
     
+    print("Number of weekend minutes?")
+    
+    // Collect input
+    guard let givenInput = readLine() else {
+        // Repeat prompt, no input given
+        continue
+    }
+    
+    // Convert to integer
+    guard let givenInteger = Int(givenInput) else {
+        // Repeat prompt, not an integer
+        continue
+    }
+    
+    // Now we have an integer, break input loop
+    weekEndTimeMinutes = givenInteger
+    break
 }
  
 // 2. Process
@@ -62,11 +79,12 @@ while true {
 // Calculate costs for plan A
 var a = 0.0
  
-// Add daytime cost
-a += Double((dayTimeMinutes - 100)) * 0.25 + 0.15 * Double(eveningTimeMinutes)
+// Add daytime and night time cost
+a += Double((dayTimeMinutes - 100)) * 0.25
 if a < 0{
     a = 0
 }
+a +=  0.15 * Double(eveningTimeMinutes)
 // Calculate costs for plan B
  
 // 3. Output
