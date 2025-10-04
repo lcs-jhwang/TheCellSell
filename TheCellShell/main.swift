@@ -79,14 +79,19 @@ while true {
 // Calculate costs for plan A
 var a = 0.0
  
-// Add daytime and night time cost
+// Add daytime  cost
 a += Double((dayTimeMinutes - 100)) * 0.25
 if a < 0{
     a = 0
 }
-a +=  0.15 * Double(eveningTimeMinutes)
+// night time and weekend cost
+a +=  0.15 * Double(eveningTimeMinutes) + Double(weekEndTimeMinutes) * 0.2
 // Calculate costs for plan B
  
+
+
+
+
 // 3. Output
 print("Plan A costs \(a)")
  
